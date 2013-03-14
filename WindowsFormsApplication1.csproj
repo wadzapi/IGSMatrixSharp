@@ -50,9 +50,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Matrix.cs" />
-    <Compile Include="MatrixException.cs" />
-    <Compile Include="MatrixOperations.cs" />
+    <Compile Include="Matrixes\DiagMatrix.cs" />
+    <Compile Include="Matrixes\DownTriangleMatrix.cs" />
+    <Compile Include="Matrixes\Matrix.cs" />
+    <Compile Include="Matrixes\MatrixException.cs" />
+    <Compile Include="Matrixes\MatrixIO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Matrixes\Tridiagonal.cs" />
+    <Compile Include="Matrixes\UpTriangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
