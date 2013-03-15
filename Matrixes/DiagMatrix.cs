@@ -8,8 +8,8 @@ namespace Matrixes
 {
     class DiagMatrix:Matrix
     {
-        public DiagMatrix(int cols, int rows)
-            : base(cols, rows)
+        public DiagMatrix(int rows, int cols)
+            : base(rows, cols)
         {
         }
 
@@ -28,7 +28,7 @@ namespace Matrixes
             int minDim = Math.Min(this.rowsNum, this.colsNum);
             for (int i = 0; i < minDim; i++)
             {
-                matrixArray[i, i] = rnd.NextDouble() * Matrix.MaxRndVal;
+                matrixArray[i, i] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision); ;
             }
         }
     }

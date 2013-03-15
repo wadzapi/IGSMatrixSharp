@@ -54,11 +54,11 @@
     <Compile Include="Matrixes\DownTriangleMatrix.cs" />
     <Compile Include="Matrixes\Matrix.cs" />
     <Compile Include="Matrixes\MatrixException.cs" />
-    <Compile Include="Matrixes\MatrixIO.cs">
+    <Compile Include="Matrixes\MatrixGrid.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Matrixes\Tridiagonal.cs" />
-    <Compile Include="Matrixes\UpTriangle.cs" />
+    <Compile Include="Matrixes\TridiagonalMatrix.cs" />
+    <Compile Include="Matrixes\UpTriangleMatrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -87,6 +87,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

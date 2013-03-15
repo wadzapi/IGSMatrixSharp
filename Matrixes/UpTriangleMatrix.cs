@@ -1,20 +1,23 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Matrixes
 {
-    class DownTriangleMatrix: Matrix
+    class UpTriangleMatrix:Matrix
     {
-        public DownTriangleMatrix(int rows, int cols)
-            : base(rows, cols)
+        public UpTriangleMatrix(int rows, int cols): base(rows, cols)
         {
+
         }
 
         public override void constFill(double x)
         {
-            for (int row = 0; row < _rows; row++)
+            for (int row = 0; row < rowsNum; row++)
             {
-                for (int col = 0; col <= row; col++)
+                for (int col = row; col < _cols; col++)
                 {
                     matrixArray[row, col] = x;
                 }
@@ -23,9 +26,9 @@ namespace Matrixes
 
         public override void rndFill()
         {
-            for (int row = 0; row < _rows; row++)
+            for (int row = 0; row < rowsNum; row++)
             {
-                for (int col = 0; col <= row; col++)
+                for (int col = row; col < _cols; col++)
                 {
                     matrixArray[row, col] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
                 }

@@ -12,12 +12,13 @@ namespace Matrixes
         protected int _cols;
         protected double[,] matrixArray;
         protected Random rnd;
-        public const double MaxRndVal = 100.0d;
+        public double MaxRndVal = 100.0d;//Максимальное значение случайного числа
+        public int MaxPrecision = 1; //Число знаков после запятой
 
-        public Matrix(int _rows, int _cols)
+        public Matrix(int rows, int cols)
         {
-            this._rows = _rows;
-            this._cols = _cols;
+            this._rows = rows;
+            this._cols = cols;
             matrixArray = new double[_rows, _cols];
             rnd = new Random();
             initElemets();
@@ -61,7 +62,7 @@ namespace Matrixes
         {
             get
             {
-                return _cols;
+                return _rows;
             }
         }
 
@@ -99,7 +100,7 @@ namespace Matrixes
             {
                 for (int c = 0; c < _cols; c++)
                 {
-                    matrixArray[r, c] = rnd.NextDouble() * MaxRndVal;
+                    matrixArray[r, c] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
                 }
             }
         }
