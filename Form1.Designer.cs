@@ -44,8 +44,8 @@
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.MatrixFillOpts = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -166,6 +166,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(26, 22);
             this.textBox5.TabIndex = 11;
+            this.textBox5.Text = "2";
             // 
             // radioButton5
             // 
@@ -195,6 +196,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(28, 22);
             this.textBox4.TabIndex = 6;
+            this.textBox4.Text = "3";
             // 
             // radioButton7
             // 
@@ -241,17 +243,6 @@
             this.radioButton4.Text = "Умножить A на B";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // radioButton13
-            // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(193, 110);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(102, 20);
-            this.radioButton13.TabIndex = 10;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "Умножить B на";
-            this.radioButton13.UseVisualStyleBackColor = true;
-            // 
             // radioButton9
             // 
             this.radioButton9.AutoSize = true;
@@ -262,6 +253,17 @@
             this.radioButton9.TabStop = true;
             this.radioButton9.Text = "Определитель А";
             this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(193, 110);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(102, 20);
+            this.radioButton13.TabIndex = 10;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "Умножить B на";
+            this.radioButton13.UseVisualStyleBackColor = true;
             // 
             // radioButton11
             // 

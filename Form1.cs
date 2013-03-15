@@ -150,14 +150,14 @@ namespace Matrixes
                     //Определитель A
                     MGridС.Visible = false;
                     ScalarResultBox.Visible = true;
-             
-                    //ScalarResultBox.Text = Matrix.
+                    ScalarResultBox.Text = Matrix.Determinant(MatrixA).ToString();
                 }
                 else if (radioButton6.Checked)
                 {
                     //Транспонировать A
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
+                    MGridС.FillCells(Matrix.Transpose(MatrixA));
                 }
                 else if (radioButton8.Checked)
                 {
@@ -167,6 +167,11 @@ namespace Matrixes
                         //Умножить A * k
                         MGridС.Visible = true;
                         ScalarResultBox.Visible = false;
+                        MGridС.FillCells(MatrixA * k);
+                    }
+                    else
+                    {
+                        MessageBox.Show("В поле множителя недопустимый символ!");
                     }
                 }
             }
@@ -177,12 +182,14 @@ namespace Matrixes
                     //Определитель B
                     MGridС.Visible = false;
                     ScalarResultBox.Visible = true;
+                    ScalarResultBox.Text = Matrix.Determinant(MatrixA).ToString();
                 }
                 else if (radioButton12.Checked)
                 {
                     //Транспонировать B
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
+                    MGridС.FillCells(Matrix.Transpose(MatrixB));
                 }
                 else if (radioButton13.Checked)
                 {
@@ -192,6 +199,7 @@ namespace Matrixes
                         //Умножить B * k
                         MGridС.Visible = true;
                         ScalarResultBox.Visible = false;
+                        MGridС.FillCells(MatrixB * k);
                     }
                 }
             }
@@ -202,24 +210,28 @@ namespace Matrixes
                     //Сложить A + B
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
+                    MGridС.FillCells(MatrixA + MatrixB);
                 }
                 else if (radioButton10.Checked)
                 {
                     //Вычесть A - B
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
+                    MGridС.FillCells(MatrixA - MatrixB);
                 }
                 else if (radioButton4.Checked)
                 {
                     //Умножить A*B
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
+                    MGridС.FillCells(MatrixA * MatrixB);
                 }
                 else if (radioButton7.Checked)
                 {
                     //Умножить B*A
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
+                    MGridС.FillCells(MatrixB * MatrixA);
                 }
             }
         }

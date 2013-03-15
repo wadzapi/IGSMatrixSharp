@@ -119,7 +119,7 @@ namespace Matrixes
 
 
         //нахождение минора матрицы
-        public static Matrix Minor(Matrix m, int colNum, int rowNum)
+        public static Matrix Minor(Matrix m, int rowNum, int colNum)
         {
             int minorRows = m.rowsNum - 1;
             int minorCols = m.colsNum - 1;
@@ -130,6 +130,7 @@ namespace Matrixes
             {
                 if (row == rowNum)
                     ri++;
+                ci = 0;
                 for (int col = 0; col < minorCols; col++)
                 {
                     if (col == colNum)
@@ -147,8 +148,8 @@ namespace Matrixes
          */
         public static Matrix Transpose(Matrix m)
         {
-            int rows = m.rowsNum;
-            int cols = m.colsNum;
+            int rows = m.colsNum;
+            int cols = m.rowsNum;
             Matrix transp = new Matrix(rows, cols);
             for (int r = 0; r < rows; r++)
             {
@@ -277,10 +278,10 @@ namespace Matrixes
                 {
                     //Нахождение определителя разложением по Th. Лапласа по элементам первой строки
                     int row = 0;
-                    for (int col = 0; col < cols; cols++)
+                    for (int col = 0; col < cols; col++)
                     {
                         Matrix minor = Minor(m, row, col);
-                        det += Math.Pow(-1, row + col) * m[row, col] * Determinant(minor);
+                        det += Math.Pow(-1, 2 + row + col) * m[row, col] * Determinant(minor);
                     }
                 }
             }
