@@ -143,21 +143,21 @@ namespace Matrixes
         {
             Matrix MatrixA = MGridA.ReadCells();
             Matrix MatrixB = MGridB.ReadCells();
-            if (MatrixA != null)
+            try
             {
                 if (radioButton9.Checked)
                 {
                     //Определитель A
+                    ScalarResultBox.Text = Matrix.Determinant(MatrixA).ToString();
                     MGridС.Visible = false;
                     ScalarResultBox.Visible = true;
-                    ScalarResultBox.Text = Matrix.Determinant(MatrixA).ToString();
                 }
                 else if (radioButton6.Checked)
                 {
                     //Транспонировать A
+                    MGridС.FillCells(Matrix.Transpose(MatrixA));
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
-                    MGridС.FillCells(Matrix.Transpose(MatrixA));
                 }
                 else if (radioButton8.Checked)
                 {
@@ -165,31 +165,28 @@ namespace Matrixes
                     if (Double.TryParse(textBox5.Text, out k))
                     {
                         //Умножить A * k
-                        MGridС.Visible = true;
-                        ScalarResultBox.Visible = false;
                         MGridС.FillCells(MatrixA * k);
+                        MGridС.Visible = false;
+                        ScalarResultBox.Visible = true;
                     }
                     else
                     {
                         MessageBox.Show("В поле множителя недопустимый символ!");
                     }
                 }
-            }
-            if (MatrixB != null)
-            {
-                if (radioButton11.Checked)
+                else if (radioButton11.Checked)
                 {
                     //Определитель B
+                    ScalarResultBox.Text = Matrix.Determinant(MatrixA).ToString();
                     MGridС.Visible = false;
                     ScalarResultBox.Visible = true;
-                    ScalarResultBox.Text = Matrix.Determinant(MatrixA).ToString();
                 }
                 else if (radioButton12.Checked)
                 {
                     //Транспонировать B
+                    MGridС.FillCells(Matrix.Transpose(MatrixB));
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
-                    MGridС.FillCells(Matrix.Transpose(MatrixB));
                 }
                 else if (radioButton13.Checked)
                 {
@@ -197,45 +194,48 @@ namespace Matrixes
                     if (Double.TryParse(textBox4.Text, out k))
                     {
                         //Умножить B * k
+                        MGridС.FillCells(MatrixB * k);
                         MGridС.Visible = true;
                         ScalarResultBox.Visible = false;
-                        MGridС.FillCells(MatrixB * k);
+                    }
+                    else
+                    {
+                        MessageBox.Show("В поле множителя недопустимый символ!");
                     }
                 }
-            }
-            if (MatrixA != null && MatrixB != null)
-            {
-                if (radioButton5.Checked)
+                else if (radioButton5.Checked)
                 {
                     //Сложить A + B
+                    MGridС.FillCells(MatrixA + MatrixB);
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
-                    MGridС.FillCells(MatrixA + MatrixB);
                 }
                 else if (radioButton10.Checked)
                 {
-                    //Вычесть A - B
+                    //Вычесть A - B   
+                    MGridС.FillCells(MatrixA - MatrixB);
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
-                    MGridС.FillCells(MatrixA - MatrixB);
                 }
                 else if (radioButton4.Checked)
                 {
-                    //Умножить A*B
+                    //Умножить A*B   
+                    MGridС.FillCells(MatrixA * MatrixB);
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
-                    MGridС.FillCells(MatrixA * MatrixB);
                 }
                 else if (radioButton7.Checked)
                 {
                     //Умножить B*A
+                    MGridС.FillCells(MatrixB * MatrixA);
                     MGridС.Visible = true;
                     ScalarResultBox.Visible = false;
-                    MGridС.FillCells(MatrixB * MatrixA);
                 }
             }
+            catch (MatrixException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
-
-
     }
 }

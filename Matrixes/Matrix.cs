@@ -75,7 +75,6 @@ namespace Matrixes
             set
             //установка значений массива матрицы
             {
-
                 if (value.GetLength(0) == matrixArray.GetLength(0) && value.GetLength(1) == matrixArray.GetLength(1))
                 {
                     for (int r = 0; r < _rows; r++)
@@ -121,6 +120,8 @@ namespace Matrixes
         //нахождение минора матрицы
         public static Matrix Minor(Matrix m, int rowNum, int colNum)
         {
+            if (m == null)
+                throw new MatrixException("Не задана матрица минора.");
             int minorRows = m.rowsNum - 1;
             int minorCols = m.colsNum - 1;
             Matrix minor = new Matrix(minorRows, minorCols);
@@ -148,6 +149,8 @@ namespace Matrixes
          */
         public static Matrix Transpose(Matrix m)
         {
+            if (m == null)
+                throw new MatrixException("Не задана матрица транспонирования.");
             int rows = m.colsNum;
             int cols = m.rowsNum;
             Matrix transp = new Matrix(rows, cols);
@@ -166,6 +169,8 @@ namespace Matrixes
          */
         public static Matrix operator *(Matrix a, Matrix b)
         {
+            if (a == null || b == null)
+                throw new MatrixException("Не задана одна из матриц произведения.");
             Matrix product = null;
             if (a.colsNum == b.rowsNum)
             {
@@ -194,6 +199,8 @@ namespace Matrixes
 
         public static Matrix operator *(Matrix a, double x)
         {
+            if (a == null)
+                throw new MatrixException("Не задана матрица произведения.");
             int rowsNum = a.rowsNum;
             int colsNum = a.colsNum;
             Matrix product = new Matrix(rowsNum, colsNum);
@@ -209,6 +216,8 @@ namespace Matrixes
 
         public static Matrix operator +(Matrix a, Matrix b)
         {
+            if (a == null || b == null)
+                throw new MatrixException("Не задана одна из матриц суммы.");
             Matrix sumMatr = null;
             if (a.colsNum == b.colsNum && a.rowsNum == b.rowsNum)
             {
@@ -232,7 +241,9 @@ namespace Matrixes
 
         public static Matrix operator -(Matrix a, Matrix b)
         {
-            Matrix substrMatr;
+            if (a == null || b == null)
+                throw new MatrixException("Не задана одна из матриц разности.");
+            Matrix substrMatr = null;
             if (a.colsNum == b.colsNum && a.rowsNum == b.rowsNum)
             {
                 int rows = a.rowsNum;
@@ -260,6 +271,8 @@ namespace Matrixes
          */
         public static double Determinant(Matrix m)
         {
+            if (m == null)
+                throw new MatrixException("Не задана матрица определителя.");
             double det = 0d;
             int rows = m.rowsNum;
             int cols = m.colsNum;

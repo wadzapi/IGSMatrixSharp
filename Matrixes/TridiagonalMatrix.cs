@@ -15,35 +15,46 @@ namespace Matrixes
 
         public override void constFill(double x)
         {
-            int minDim = Math.Min(_rows, _cols);
-            //заполнение первой строки матрицы
-            matrixArray[0, 0] = x;
-            matrixArray[0, 1] = x;
-            //заполнение последней строки матрицы
-            matrixArray[minDim - 1, minDim - 2] = x;
-            matrixArray[minDim - 1, minDim - 1] = x;
-            for (int i = 1; i < minDim - 1; i++)
+            //Заполнение главной диагонали
+            int maxIter = Math.Min(_rows, _cols);
+            for (int i = 0; i < maxIter; i++)
             {
-                matrixArray[i, i - 1] = x;
-                matrixArray[i, i] = x;
+               matrixArray[i, i] = x;
+            }
+            //заполнение верхней наддиагонали
+            maxIter = Math.Min(_rows - 1, _cols);
+            for (int i = 0; i < maxIter; i++)
+            {
+                matrixArray[i+1, i] = x;
+            }
+            //заполнение нижней поддиагонали
+            maxIter = Math.Min(_rows, _cols - 1);
+            for (int i = 0; i < maxIter; i++)
+            {
                 matrixArray[i, i + 1] = x;
             }
         }
+        
 
         public override void rndFill()
         {
-            int minDim = Math.Min(_rows, _cols);
-            //заполнение первой строки матрицы
-            matrixArray[0, 0] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision); ;
-            matrixArray[0, 1] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision); ;
-            //заполнение последней строки матрицы
-            matrixArray[minDim - 1, minDim - 2] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
-            matrixArray[minDim - 1, minDim - 1] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
-            for (int i = 1; i < minDim - 1; i++)
+            //Заполнение главной диагонали
+            int maxIter = Math.Min(_rows, _cols);
+            for (int i = 0; i < maxIter; i++)
             {
-                matrixArray[i, i - 1] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
-                matrixArray[i, i] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
-                matrixArray[i, i + 1 ] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
+               matrixArray[i, i] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
+            }
+            //заполнение верхней наддиагонали
+            maxIter = Math.Min(_rows - 1, _cols);
+            for (int i = 0; i < maxIter; i++)
+            {
+                matrixArray[i+1, i] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
+            }
+            //заполнение нижней поддиагонали
+            maxIter = Math.Min(_rows, _cols - 1);
+            for (int i = 0; i < maxIter; i++)
+            {
+                matrixArray[i, i + 1] = Math.Round(rnd.NextDouble() * MaxRndVal, MaxPrecision);
             }
         }
     }

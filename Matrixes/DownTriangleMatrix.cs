@@ -12,7 +12,8 @@ namespace Matrixes
 
         public override void constFill(double x)
         {
-            for (int row = 0; row < _rows; row++)
+            int maxIter = Math.Min(_rows, _cols); 
+            for (int row = 0; row < maxIter; row++)
             {
                 for (int col = 0; col <= row; col++)
                 {
@@ -23,7 +24,8 @@ namespace Matrixes
 
         public override void rndFill()
         {
-            for (int row = 0; row < _rows; row++)
+            int maxIter = Math.Min(_rows, _cols);
+            for (int row = 0; row < maxIter; row++)
             {
                 for (int col = 0; col <= row; col++)
                 {
